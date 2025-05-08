@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import "trix/dist/trix.css";
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  ul {
+    @apply list-disc pl-5 text-gray-800;
+  }
+
+  ol {
+    @apply list-decimal pl-5 text-gray-800;
+  }
+
+  blockquote {
+    @apply border-l-4 border-green-500 pl-4 italic text-gray-700;
+  }
+
+  a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors;
+  }
+
+
+}
