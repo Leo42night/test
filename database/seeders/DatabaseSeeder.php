@@ -10,6 +10,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,12 +20,19 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        $this->call(RolesAndPermissionsSeeder::class);
 
-        User::factory()->create([
+        $admin = User::factory()->create([
             'name' => 'test',
             'email' => 'test@test.com',
             'password' => Hash::make('123456'),
-            'role' => 'admin',
+        ]);
+        $admin->assignRole(Role::findByName('admin'));  
+
+        User::create([
+            'name' => 'test2',
+            'email' => 'test2@test.com',
+            'password' => Hash::make('123456'),
         ]);
 
         Blog::factory(10)->sequence(fn($sequence) => [

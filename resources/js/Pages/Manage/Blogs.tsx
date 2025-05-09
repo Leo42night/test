@@ -137,7 +137,7 @@ export default function Blogs({ blogs, filters }: Props) {
           </div>
 
           <div className="w-full md:w-auto">
-            <form onSubmit={handleSearch} className="flex flex-wrap gap-2">
+            <form onSubmit={handleSearch} className="flex flex-row gap-2">
               <div className="relative w-full max-w-md">
                 <input
                   type="text"

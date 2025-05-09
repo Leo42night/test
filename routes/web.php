@@ -17,6 +17,10 @@ use Inertia\Inertia;
 //     ]);
 // });
 
+Route::get('/admin', function () {
+    return 'Halaman Admin';
+})->middleware('role:admin');  // Parameter "admin" diberikan
+
 Route::prefix('manage')->group(function () {
     Route::get('/blog', function (Request $request) {
         $search = $request->input('search');
@@ -59,6 +63,7 @@ Route::resource('blogs', BlogController::class);
 Route::get('/', function () {
      // Data statis sebagai contoh user login palsu
     return Inertia::render('Dashboard');
+    // return redirect()->route('blog');
 })->name('dashboard');
 
 Route::middleware('auth')->group(function () {
