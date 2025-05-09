@@ -38,12 +38,13 @@ jobs:
         curl -fsSL https://get.pnpm.io/install.sh | bash -
         export PATH="$HOME/.local/share/pnpm:$PATH"
         pnpm install
+        pnpm run build
       # run: |
       #   curl -fsSL https://get.pnpm.io/install.sh | sh -
       #   export PATH="$HOME/.local/share/pnpm:$PATH"
       #   pnpm install
-    - name: Build Frontend
-      run: pnpm run build
+    # - name: Build Frontend
+    #   run: 
     - name: 🚚 Deploy Code via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
