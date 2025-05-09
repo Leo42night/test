@@ -58,15 +58,15 @@ jobs:
       #   export PATH="$HOME/.local/share/pnpm:$PATH"
       #   pnpm install
     - name: Build Frontend
-      run: pnpm run build
-    - name: 🚚 Deploy Code via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ftp.starplus.co.id
-        username: ${{ secrets.FTP_USER }}
-        password: ${{ secrets.FTP_PASS }}
-        server-dir: /
-        timeout: 2400000 # 40 menit
+      run: pnpm run build --verbose
+    # - name: 🚚 Deploy Code via FTP
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+    #   with:
+    #     server: ftp.starplus.co.id
+    #     username: ${{ secrets.FTP_USER }}
+    #     password: ${{ secrets.FTP_PASS }}
+    #     server-dir: /
+    #     timeout: 2400000 # 40 menit
     # - name: Generate key
     #   run: php artisan key:generate
     # - name: Directory Permissions
