@@ -35,9 +35,13 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies (pnpm & Composer)
       run: |
-        curl -fsSL https://get.pnpm.io/install.sh | sh -
+        curl -fsSL https://get.pnpm.io/install.sh | bash -
         export PATH="$HOME/.local/share/pnpm:$PATH"
         pnpm install
+      # run: |
+      #   curl -fsSL https://get.pnpm.io/install.sh | sh -
+      #   export PATH="$HOME/.local/share/pnpm:$PATH"
+      #   pnpm install
     - name: Build Frontend
       run: pnpm run build
     - name: 🚚 Deploy Code via FTP
