@@ -15,8 +15,8 @@ export default function UpdateProfileInformation({
     status?: string;
     className?: string;
 }) {
-    // const user = usePage().props.auth.user;
-    const user = usePage().props.auth.user as { name: string; email: string, email_verified_at?: string };
+    const user = usePage().props.auth.user;
+    // const user = usePage().props.auth.user as { name: string; email: string, email_verified_at?: string };
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
         useForm({
